@@ -1,0 +1,18 @@
+---
+
+- name: create the underlying network
+  docker_network:
+    name: "{{ gitea_network }}"
+    state: present
+
+- name: include the docker-db-role
+  include_role:
+    name: docker-db
+  vars:
+    docker_app: gitea
+    db_type: "{{ gitea_config_db_type }}"
+    db_name: "{{ gitea_config_db_name }}"
+    db_user: "{{ gitea_config_db_user }}"
+    db_pass: "{{ gitea_config_db_passwd }}"
+
+- include_tasks: gitea.yml
