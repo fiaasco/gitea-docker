@@ -3,3 +3,7 @@
 - src: https://github.com/FiaasCo/docker
   version: master
   name: docker
+
+- src: https://github.com/FiaasCo/traefik-docker
+  version: master
+  name: traefik-docker
