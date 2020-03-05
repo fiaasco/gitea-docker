@@ -6,9 +6,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_gitea-docker_hosts_file(host):
+def test_gitea_docker_hosts_file(host):
     f = host.file('/etc/hosts')
-
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'

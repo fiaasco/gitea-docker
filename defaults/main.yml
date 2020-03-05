@@ -5,7 +5,7 @@
 
 ## description: single line to describe what the variable sets
 ## type: string|bool|dict|list
-#gitea-docker_variable: default_value
+# gitea-docker_variable: default_value
 
 gitea_config_app_name: "Gitea: Git with a cup of tea"
 gitea_config_db_host: "gitea-database-{{ gitea_config_db_type }}"

@@ -29,13 +29,13 @@
       USER_UID: "{{ gitea_config_user_uid }}"
       USER_GID: "{{ gitea_config_user_gid }}"
     ports:
-     - "{{ gitea_config_public_ssh_port }}:{{ gitea_config_ssh_port }}"
-     - "3000:{{ gitea_config_http_port }}"
+      - "{{ gitea_config_public_ssh_port }}:{{ gitea_config_ssh_port }}"
+      - "{{ gitea_config_http_port }}:{{ gitea_config_http_port }}"
     restart_policy: always
     networks:
       - name: "{{ gitea_network }}"
       - name: bridge
-    networks_cli_compatible: yes
+    networks_cli_compatible: true
     labels: |
       {
         'traefik.http.routers.gitea-app.entryPoints': 'http',
@@ -43,7 +43,7 @@
         'traefik.http.routers.gitea-app.rule': 'Host("{{ gitea_config_root_url }}")',
         'traefik.http.routers.gitea-app-ssl.entryPoints': 'https',
         'traefik.http.routers.gitea-app-ssl.rule': 'Host("{{ gitea_config_root_url }}")',
-        'traefik.http.services.gitea-app-ssl.loadbalancer.server.port': '3000',
+        'traefik.http.services.gitea-app-ssl.loadbalancer.server.port': '{{ gitea_config_http_port }}',
         'traefik.http.routers.gitea-app-ssl.tls': 'true',
         'traefik.http.routers.gitea-app-ssl.tls.certResolver': 'le-ssl',
         'traefik.enable': 'true'
