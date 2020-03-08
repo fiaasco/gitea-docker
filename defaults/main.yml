@@ -38,7 +38,7 @@ gitea_config_disable_registration: "true"
 # type: bool
 gitea_config_disable_ssh: "false"
 
-# description: HTTP listen port.
+# description: HTTP listen port in the container
 # type: int
 gitea_config_http_port: "3000"
 
@@ -66,9 +66,13 @@ gitea_config_secret_key: "123secret123"
 # type: string
 gitea_config_ssh_domain: "{{ gitea_config_root_url }}"
 
-# description: port for the built-in ssh server
+# description: port for the built-in ssh server in the container
 # type: int
 gitea_config_ssh_listen_port: 3001
+
+# description: public port mapping for the ssh server
+# type: int
+gitea_config_public_ssh_port: 3001
 
 # description: ssh port displayed in the clone url
 # type: int
@@ -92,16 +96,16 @@ gitea_env:
   DB_NAME: "{{ gitea_config_db_name }}"
   DB_USER: "{{ gitea_config_db_user }}"
   DB_PASSWD: "{{ gitea_config_db_passwd }}"
-  DISABLE_REGISTRATION: "{{ gitea_config_disable_registration }}"
-  DISABLE_SSH: "{{ gitea_config_disable_ssh }}"
-  HTTP_PORT: "{{ gitea_config_http_port }}"
+  DISABLE_REGISTRATION: "{{ gitea_config_disable_registration|string }}"
+  DISABLE_SSH: "{{ gitea_config_disable_ssh|string }}"
+  HTTP_PORT: "{{ gitea_config_http_port|string }}"
   LFS_START_SERVER: "{{ gitea_config_lfs_start_server }}"
-  REQUIRE_SIGNIN_VIEW: "{{ gitea_config_require_signin_view }}"
+  REQUIRE_SIGNIN_VIEW: "{{ gitea_config_require_signin_view|string }}"
   ROOT_URL: "{{ gitea_config_root_url }}"
   RUN_MODE: "{{ gitea_config_run_mode }}"
   SECRET_KEY: "{{ gitea_config_secret_key }}"
   SSH_DOMAIN: "{{ gitea_config_ssh_domain }}"
-  SSH_LISTEN_PORT: "{{ gitea_config_ssh_listen_port }}"
-  SSH_PORT: "{{ gitea_config_ssh_port }}"
-  USER_UID: "{{ gitea_config_user_uid }}"
-  USER_GID: "{{ gitea_config_user_gid }}"
+  SSH_LISTEN_PORT: "{{ gitea_config_ssh_listen_port|string }}"
+  SSH_PORT: "{{ gitea_config_ssh_port|string }}"
+  USER_UID: "{{ gitea_config_user_uid|string }}"
+  USER_GID: "{{ gitea_config_user_gid|string }}"

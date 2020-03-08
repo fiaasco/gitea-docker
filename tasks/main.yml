@@ -7,7 +7,7 @@
 
 - name: include the docker-db-role
   include_role:
-    name: docker-db
+    name: fiaasco.docker-db
   vars:
     docker_app: gitea
     db_type: "{{ gitea_config_db_type }}"
