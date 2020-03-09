@@ -4,6 +4,10 @@
   version: master
   name: docker
 
+- src: https://github.com/FiaasCo/docker-db
+  version: master
+  name: docker-db
+
 - src: https://github.com/FiaasCo/traefik-docker
   version: master
   name: traefik-docker
