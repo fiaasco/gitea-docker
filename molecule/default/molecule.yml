@@ -12,6 +12,8 @@ platforms:
     image: ubuntu:bionic
     command: /lib/systemd/systemd
     privileged: true
+    volumes:
+      - /tmp/gitea-docker-ubuntu-bionic:/var/lib/docker
 provisioner:
   name: ansible
   config_options:
