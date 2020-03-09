@@ -22,6 +22,7 @@ provisioner:
       jinja2_extensions: jinja2.ext.do
       gather_timeout: 30
       timeout: 30
+      interpreter_python: auto
     ssh_connection:
       pipelining: true
   lint:
