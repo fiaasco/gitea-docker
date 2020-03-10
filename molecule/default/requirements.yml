@@ -2,8 +2,12 @@
 
 - src: https://github.com/FiaasCo/docker
   version: master
-  name: docker
+  name: fiaasco.docker
+
+- src: https://github.com/FiaasCo/docker-db
+  version: master
+  name: fiaasco.docker-db
 
 - src: https://github.com/FiaasCo/traefik-docker
   version: master
-  name: traefik-docker
+  name: fiaasco.traefik-docker

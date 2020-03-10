@@ -12,6 +12,8 @@ platforms:
     image: ubuntu:bionic
     command: /lib/systemd/systemd
     privileged: true
+    volumes:
+      - /tmp/gitea-docker-ubuntu-bionic:/var/lib/docker
 provisioner:
   name: ansible
   config_options:
@@ -20,6 +22,7 @@ provisioner:
       jinja2_extensions: jinja2.ext.do
       gather_timeout: 30
       timeout: 30
+      interpreter_python: auto
     ssh_connection:
       pipelining: true
   lint:

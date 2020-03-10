@@ -2,5 +2,5 @@
 - name: Prepare
   hosts: all
   roles:
-    - role: docker
-    - role: traefik-docker
+    - role: fiaasco.docker
+    - role: fiaasco.traefik-docker
