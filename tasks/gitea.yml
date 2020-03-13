@@ -21,9 +21,9 @@
       {
         'traefik.http.routers.gitea-app.entryPoints': 'http',
         'traefik.http.routers.gitea-app.middlewares': 'redirect',
-        'traefik.http.routers.gitea-app.rule': 'Host("{{ gitea_config_root_url }}")',
+        'traefik.http.routers.gitea-app.rule': 'Host("{{ gitea_config_root_url|urlsplit('hostname') }}")',
         'traefik.http.routers.gitea-app-ssl.entryPoints': 'https',
-        'traefik.http.routers.gitea-app-ssl.rule': 'Host("{{ gitea_config_root_url }}")',
+        'traefik.http.routers.gitea-app-ssl.rule': 'Host("{{ gitea_config_root_url|urlsplit('hostname') }}")',
         'traefik.http.services.gitea-app-ssl.loadbalancer.server.port': '{{ gitea_config_http_port }}',
         'traefik.http.routers.gitea-app-ssl.tls': 'true',
         'traefik.http.routers.gitea-app-ssl.tls.certResolver': 'le-ssl',
