@@ -5,7 +5,7 @@ gitea_network: gitea-network
 
 # description: gitea version to deploy
 # type: string
-gitea_version: "1.11.1"
+gitea_version: "1.11.3"
 
 # the below variables are env vars used to configure gitea and documented here
 # Disable registration, after which only admin can create accounts for users
