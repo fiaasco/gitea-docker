@@ -52,7 +52,7 @@ gitea_config_require_signin_view: true
 
 # description: public url for the instance
 # type: string
-gitea_config_root_url: git.company.co
+gitea_config_root_url: https://git.company.co
 
 # description: use dev or prod mode?
 # type: string
@@ -64,7 +64,7 @@ gitea_config_secret_key: "123secret123"
 
 # description: domain name used for the displayed clone URL in Gitea’s UI
 # type: string
-gitea_config_ssh_domain: "{{ gitea_config_root_url }}"
+gitea_config_ssh_domain: "{{ gitea_config_root_url|urlsplit('hostname') }}"
 
 # description: port for the built-in ssh server in the container
 # type: int
