@@ -9,6 +9,7 @@ gitea_version: "1.11.3"
 
 # the below variables are env vars used to configure gitea and documented here
 # Disable registration, after which only admin can create accounts for users
+# all container env variables should be strings!
 
 # description: database type
 # type: string
@@ -31,24 +32,24 @@ gitea_config_db_user: giteauser
 gitea_config_db_passwd: giteapass
 
 # description: disable registration, after which only admin can create accounts for users
-# type: bool
-gitea_config_disable_registration: "true"
+# type: string
+gitea_config_disable_registration: "True"
 
 # description: disable SSH feature when it’s not available
-# type: bool
-gitea_config_disable_ssh: "false"
+# type: string
+gitea_config_disable_ssh: "False"
 
 # description: HTTP listen port in the container
 # type: int
-gitea_config_http_port: "3000"
+gitea_config_http_port: 3000
 
 # description: enable git lfs support?
-# type: bool
-gitea_config_lfs_start_server: "true"
+# type: string
+gitea_config_lfs_start_server: "True"
 
 # description: enable this to force users to log in to view any page.
-# type: bool
-gitea_config_require_signin_view: true
+# type: string
+gitea_config_require_signin_view: "True"
 
 # description: public url for the instance
 # type: string
@@ -76,15 +77,15 @@ gitea_config_public_ssh_port: 3001
 
 # description: ssh port displayed in the clone url
 # type: int
-gitea_config_ssh_port: "22"
+gitea_config_ssh_port: 22
 
 # description: The GID (Unix group ID) of the user that runs Gitea within the container.
 # type: int
-gitea_config_user_gid: "1000"
+gitea_config_user_gid: 1000
 
 # description: The UID (Unix user ID) of the user that runs Gitea within the container.
 # type: int
-gitea_config_user_uid: "1000"
+gitea_config_user_uid: 1000
 
 
 # description: env vars with configuration for gitea
@@ -99,7 +100,7 @@ gitea_env:
   DISABLE_REGISTRATION: "{{ gitea_config_disable_registration|string }}"
   DISABLE_SSH: "{{ gitea_config_disable_ssh|string }}"
   HTTP_PORT: "{{ gitea_config_http_port|string }}"
-  LFS_START_SERVER: "{{ gitea_config_lfs_start_server }}"
+  LFS_START_SERVER: "{{ gitea_config_lfs_start_server|string }}"
   REQUIRE_SIGNIN_VIEW: "{{ gitea_config_require_signin_view|string }}"
   ROOT_URL: "{{ gitea_config_root_url }}"
   RUN_MODE: "{{ gitea_config_run_mode }}"
