@@ -8,7 +8,6 @@
       - "gitea-data:/data"
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
-    user: "{{ gitea_config_user_uid }}:{{ gitea_config_user_gid }}"
     env: "{{ gitea_env }}"
     ports:
       - "{{ gitea_config_public_ssh_port }}:{{ gitea_config_ssh_port }}"
