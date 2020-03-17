@@ -10,8 +10,8 @@
       - "/etc/localtime:/etc/localtime:ro"
     env: "{{ gitea_env }}"
     ports:
-      - "{{ gitea_config_public_ssh_port }}:{{ gitea_config_ssh_port }}"
-      - "{{ gitea_config_http_port }}:{{ gitea_config_http_port }}"
+      - "{{ gitea_config_ssh_port }}"
+      - "{{ gitea_config_http_port }}"
     restart_policy: always
     networks:
       - name: "{{ gitea_network }}"
@@ -27,5 +27,7 @@
         'traefik.http.services.gitea-app-ssl.loadbalancer.server.port': '{{ gitea_config_http_port }}',
         'traefik.http.routers.gitea-app-ssl.tls': 'true',
         'traefik.http.routers.gitea-app-ssl.tls.certResolver': 'le-ssl',
+        'traefik.tcp.routers.gitea-app-tcp.entryPoints': 'tcp',
+        'traefik.tcp.routers.gitea-app-tcp.rule': 'Host("{{ gitea_config_root_url|urlsplit('hostname') }}")',
         'traefik.enable': 'true'
       }
