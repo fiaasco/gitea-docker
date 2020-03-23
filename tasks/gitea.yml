@@ -29,6 +29,7 @@
         'traefik.http.routers.gitea-app-ssl.tls.certResolver': 'le-ssl',
         'traefik.tcp.routers.gitea-app-tcp.entryPoints': 'tcp',
         'traefik.tcp.routers.gitea-app-tcp.rule': 'HostSNI("*")',
+        'traefik.tcp.routers.gitea-app-tcp.tls.passthrouth': 'true',
         'traefik.tcp.services.gitea-app-tcp.loadbalancer.server.port': '{{ gitea_config_ssh_listen_port }}',
         'traefik.enable': 'true'
       }
