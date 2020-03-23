@@ -12,6 +12,9 @@ platforms:
     image: ubuntu:bionic
     command: /lib/systemd/systemd
     privileged: true
+    ports:
+      - 3000:3000
+      - 8880:443
     volumes:
       - /tmp/gitea-docker-ubuntu-bionic:/var/lib/docker
 provisioner:
