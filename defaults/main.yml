@@ -11,6 +11,10 @@ gitea_version: "1.11.3"
 # Disable registration, after which only admin can create accounts for users
 # all container env variables should be strings!
 
+# description: Gitea app name
+# type: string
+gitea_config_app_name: "Gitea: Git with a cup of tea"
+
 # description: database type
 # type: string
 gitea_config_db_type: postgres
@@ -91,7 +95,7 @@ gitea_config_user_uid: 1000
 # description: env vars with configuration for gitea
 # type: dict
 gitea_env:
-  APP_NAME: "Gitea: Git with a cup of tea"
+  APP_NAME: "{{ gitea_config_app_name }}"
   DB_TYPE: "{{ gitea_config_db_type }}"
   DB_HOST: "{{ gitea_config_db_host }}"
   DB_NAME: "{{ gitea_config_db_name }}"
